@@ -3,13 +3,15 @@
 A [Typst][typ] template for grading final-year projects in the [School of
 Computer Science][socs] at the University of Leeds.
 
-This can be used to generate the individual reports for supervisor &
-assessor, and the final joint assessment report.
+This template can be used to generate the individual reports for supervisor
+& assessor, and the final joint assessment report.
 
-A valid but empty document is provided in `empty.typ`. You can run this
-through Typst to see the effect of the default parameter settings.
+A valid but empty document that uses the template is provided in `empty.typ`.
+You can run this through Typst to see the effect of the default parameter
+settings.
 
-A fleshed-out example is provided in `example.typ`.
+A fleshed-out example document with guiding comments is provided in
+`starter.typ`. Use this as a starting point for writing actual reports.
 
 ## Notes
 
@@ -62,5 +64,5 @@ Grades are supplied via these parameters:
 Values should be integers and will be checked to make sure that they are in
 range. The total will be computed and included in the report.
 
-[typ]: https://typst.app/
+[typ]: https://github.com/typst/typst
 [socs]: https://eps.leeds.ac.uk/computing/

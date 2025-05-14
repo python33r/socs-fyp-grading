@@ -194,7 +194,7 @@
     research_grade +
     methods_grade +
     implementation_grade +
-    research_grade +
+    results_grade +
     presentation_grade +
     appraisal_grade
   )

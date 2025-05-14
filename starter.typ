@@ -47,5 +47,7 @@
   appraisal_grade:      0
 )
 
-You can include your own private notes from this point onwards;
-they won't be visible in the PDF output.
+You can include your own private notes from this point onwards.
+
+This material will not be visible in the PDF output, but it will be
+parsed by the Typst compiler, so must conform to Typst syntax.

@@ -1,7 +1,7 @@
 #import "socs-fyp-grading.typ": *
 
 #show: report.with(
-  // Specify report_type as "sup", "asr" or "har"
+  // Specify report_type as "sup", "asr" or "jar"
   report_type: "sup",
   student: "STUDENT NAME",
   project_title: [

@@ -209,7 +209,7 @@
     [*Results & Evaluation*], [20], str(results_grade), results_comments,
     [*Presentation*], [10], str(presentation_grade), presentation_comments,
     [*Self-Appraisal*], [10], str(appraisal_grade), appraisal_comments,
-    [*TOTAL*], text(14pt)[100], text(14pt, grade),
+    table.cell(align: horizon)[*TOTAL*], text(14pt)[100], text(14pt, grade),
   )
 
   v(1em)

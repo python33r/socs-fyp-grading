@@ -2,40 +2,40 @@
 // (Nick Efford, May 2025)
 
 #let report(doc,
-  report_type: "sup",
-  module_code: "COMP3931",
+  report-type: "sup",
+  module-code: "COMP3931",
   student: "",
-  project_title: [],
+  project-title: [],
   supervisor: "",
   assessor: "",
-  english_ok: true,
+  english-ok: true,
   comments: [],
-  research_comments: [],
-  methods_comments: [],
-  implementation_comments: [],
-  results_comments: [],
-  presentation_comments: [],
-  appraisal_comments: [],
-  research_grade: 0,
-  methods_grade: 0,
-  implementation_grade: 0,
-  results_grade: 0,
-  presentation_grade: 0,
-  appraisal_grade: 0,
+  research-comments: [],
+  methods-comments: [],
+  implementation-comments: [],
+  results-comments: [],
+  presentation-comments: [],
+  appraisal-comments: [],
+  research-grade: 0,
+  methods-grade: 0,
+  implementation-grade: 0,
+  results-grade: 0,
+  presentation-grade: 0,
+  appraisal-grade: 0,
 ) = {
   // Validation
 
-  let report_options = ("sup", "asr", "jar")
-  let module_options = ("COMP3931", "COMP3932")
+  let report-options = ("sup", "asr", "jar")
+  let module-options = ("COMP3931", "COMP3932")
 
   assert(
-    report_type in report_options,
-    message: "Report type must be one of " + report_options.join(", ")
+    report-type in report-options,
+    message: "Report type must be one of " + report-options.join(", ")
   )
 
   assert(
-    module_code in module_options,
-    message: "Module code must be one of " + module_options.join(", ")
+    module-code in module-options,
+    message: "Module code must be one of " + module-options.join(", ")
   )
 
   assert.ne(student, "", message: "Student name must be provided")
@@ -45,69 +45,69 @@
   context {
     // Make sure there is content for project title
     assert(
-      measure(project_title).width > 0pt,
+      measure(project-title).width > 0pt,
       message: "Project title must be provided"
     )
-    if report_type == "jar" {
+    if report-type == "jar" {
       // Make sure that there is content for all comments fields
       assert(
         measure(comments).width > 0pt,
         message: "Overall comments must be provided for joint report"
       )
       assert(
-        measure(research_comments).width > 0pt,
+        measure(research-comments).width > 0pt,
         message: "Background Research comments must be provided for joint report"
       )
       assert(
-        measure(methods_comments).width > 0pt,
+        measure(methods-comments).width > 0pt,
         message: "Methods comments must be provided for joint report"
       )
       assert(
-        measure(implementation_comments).width > 0pt,
+        measure(implementation-comments).width > 0pt,
         message: "Implementation & Validation comments must be provided for joint report"
       )
       assert(
-        measure(results_comments).width > 0pt,
+        measure(results-comments).width > 0pt,
         message: "Results & Evaluation comments must be provided for joint report"
       )
       assert(
-        measure(presentation_comments).width > 0pt,
+        measure(presentation-comments).width > 0pt,
         message: "Presentation comments must be provided for joint report"
       )
       assert(
-        measure(appraisal_comments).width > 0pt,
+        measure(appraisal-comments).width > 0pt,
         message: "Self-Appraisal comments must be provided for joint report"
       )
     }
   }
 
   assert(
-    research_grade >= 0 and research_grade <= 20,
+    research-grade >= 0 and research-grade <= 20,
     message: "Grade for Background Research must be in range 0-20"
   )
 
   assert(
-    methods_grade >= 0 and methods_grade <= 20,
+    methods-grade >= 0 and methods-grade <= 20,
     message: "Grade for Methods must be in range 0-20"
   )
 
   assert(
-    implementation_grade >= 0 and implementation_grade <= 20,
+    implementation-grade >= 0 and implementation-grade <= 20,
     message: "Grade for Implementation & Validation must be in range 0-20"
   )
 
   assert(
-    results_grade >= 0 and results_grade <= 20,
+    results-grade >= 0 and results-grade <= 20,
     message: "Grade for Results & Evaluation must be in range 0-20"
   )
 
   assert(
-    presentation_grade >= 0 and presentation_grade <= 10,
+    presentation-grade >= 0 and presentation-grade <= 10,
     message: "Grade for Presentation must be in range 0-10"
   )
 
   assert(
-    appraisal_grade >= 0 and appraisal_grade <= 10,
+    appraisal-grade >= 0 and appraisal-grade <= 10,
     message: "Grade for Self-Appraisal must be in range 0-10"
   )
 
@@ -116,11 +116,11 @@
   let author = supervisor
   let title = "Final Report: Individual Grading by Supervisor"
   
-  if report_type == "asr" {
+  if report-type == "asr" {
     author = assessor
     title = "Final Report: Individual Grading by Assessor"
   }
-  else if report_type == "jar" {
+  else if report-type == "jar" {
     title = "Project Assessment Form"
   }
 
@@ -157,13 +157,13 @@
 
   v(1.5em)
   
-  if report_type == "jar" [
+  if report-type == "jar" [
     _TO BE COMPLETED JOINTLY BY THE SUPERVISOR AND ASSESSOR. THE
     SUPERVISOR SHOULD UPLOAD ON BEHALF OF BOTH. PLEASE ENSURE THAT
     THE FILENAME BEGINS WITH THE STUDENT'S FAMILY NAME AND INCLUDES
     THE TEXT 'jar' SOMEWHERE._
   ]
-  else if report_type == "asr" [
+  else if report-type == "asr" [
     _TO BE COMPLETED BY THE PROJECT ASSESSOR PRIOR TO DISCUSSION WITH THE
     SUPERVISOR AND UPLOADED AS PER THE INSTRUCTIONS. PLEASE ENSURE THAT
     THE FILENAME BEGINS WITH THE STUDENT'S FAMILY NAME AND INCLUDES THE
@@ -183,8 +183,8 @@
     row-gutter: 0.5em,
     stroke: none,
     [*Student:*], student,
-    [*Title of Project:*], project_title,
-    [*Module Code:*], module_code,
+    [*Title of Project:*], project-title,
+    [*Module Code:*], module-code,
     [*Supervisor:*], supervisor,
     [*Assessor:*], assessor,
     v(1.5em),
@@ -195,7 +195,7 @@
   
   [*Report satisfies the English Competency requirements:*]
   h(0.5em)
-  if english_ok [PASS] else [FAIL]
+  if english-ok [PASS] else [FAIL]
 
   v(1.5em)
 
@@ -218,7 +218,7 @@
 
   v(1em)
 
-  if report_type == "jar" [
+  if report-type == "jar" [
     *Joint report*
   ]
   else [
@@ -234,30 +234,30 @@
   v(1em)
 
   let grade = str(
-    research_grade +
-    methods_grade +
-    implementation_grade +
-    results_grade +
-    presentation_grade +
-    appraisal_grade
+    research-grade +
+    methods-grade +
+    implementation-grade +
+    results-grade +
+    presentation-grade +
+    appraisal-grade
   )
 
   table(
     columns: (8em, 6em, 6em, 1fr),
     align: (left, center, center, left),
     table.header([], [*Maximum*], [*Grade*], [*Comments*]),
-    [*Background Research*], [20], str(research_grade), research_comments,
-    [*Methods*], [20], str(methods_grade), methods_comments,
-    [*Implementation & Validation*], [20], str(implementation_grade), implementation_comments,
-    [*Results & Evaluation*], [20], str(results_grade), results_comments,
-    [*Presentation*], [10], str(presentation_grade), presentation_comments,
-    [*Self-Appraisal*], [10], str(appraisal_grade), appraisal_comments,
+    [*Background Research*], [20], str(research-grade), research-comments,
+    [*Methods*], [20], str(methods-grade), methods-comments,
+    [*Implementation & Validation*], [20], str(implementation-grade), implementation-comments,
+    [*Results & Evaluation*], [20], str(results-grade), results-comments,
+    [*Presentation*], [10], str(presentation-grade), presentation-comments,
+    [*Self-Appraisal*], [10], str(appraisal-grade), appraisal-comments,
     table.cell(align: horizon)[*TOTAL*], text(14pt)[100], text(14pt, grade),
   )
 
   v(1em)
 
-  if report_type == "jar" [
+  if report-type == "jar" [
     The supervisor confirms that the grading has been undertaken based on
     the professional judgement of standards of both the supervisor and
     the assessor.
@@ -268,7 +268,7 @@
 
     Name of assessor: #h(0.5em) #assessor
   ]
-  else if report_type == "asr" [
+  else if report-type == "asr" [
     I confirm that the grading has been undertaken based on my professional
     judgement of standards.
 

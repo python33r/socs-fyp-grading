@@ -1,7 +1,7 @@
 // SoCS FYP Grading Report Template
 // (Nick Efford, May 2025)
 
-#let report(doc,
+#let report(
   report-type: "sup",
   module-code: "COMP3931",
   student: "",

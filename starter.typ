@@ -1,6 +1,6 @@
 #import "socs-fyp-grading.typ": *
 
-#show: report.with(
+#report(
   // Specify report-type as "sup", "asr" or "jar"
   report-type: "sup",
   student: "STUDENT NAME",
@@ -14,10 +14,15 @@
   // Uncomment line below for projects that fail on English Competency
   //english-ok: false,
   comments: [
-    // Put overall feedback on the project here
+    /*
+       Put overall feedback on the project here
 
-    // You can write multiple paragraphs here and in the other
-    // comments fields - use a blank line to separate them
+       You can write multiple paragraphs here and in the other
+       comments fields (use a blank line to separate them)
+
+       Comments fields can be left blank in supervisor or assessor reports,
+       but they must all contain text in a joint report
+    */
   ],
   research-comments: [
     // Put comments on Background Research here
@@ -46,8 +51,3 @@
   presentation-grade:   0,
   appraisal-grade:      0
 )
-
-You can include your own private notes from this point onwards.
-
-This material will not be visible in the PDF output, but it will be
-parsed by the Typst compiler, so must conform to Typst syntax.

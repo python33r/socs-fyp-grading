@@ -5,7 +5,7 @@
   report_type: "sup",
   student: "STUDENT NAME",
   project_title: [
-    // Put project title here
+    PROJECT TITLE
   ],
   // Uncomment line below for Synoptic Project
   //module_code: "COMP3932",

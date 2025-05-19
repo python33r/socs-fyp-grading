@@ -4,18 +4,18 @@
 #let report(doc,
   report_type: "sup",
   module_code: "COMP3931",
-  student: "STUDENT NAME",
-  project_title: "PROJECT TITLE",
-  supervisor: "SUPERVISOR NAME",
-  assessor: "ASSESSOR NAME",
+  student: "",
+  project_title: [],
+  supervisor: "",
+  assessor: "",
   english_ok: true,
-  comments: [_Overall feedback for project_],
-  research_comments: [_Comments on background research_],
-  methods_comments: [_Comments on methods_],
-  implementation_comments: [_Comments on implementation & validation_],
-  results_comments: [_Comments on results & evaluation_],
-  presentation_comments: [_Comments on presentation_],
-  appraisal_comments: [_Comments on self-appraisal_],
+  comments: [],
+  research_comments: [],
+  methods_comments: [],
+  implementation_comments: [],
+  results_comments: [],
+  presentation_comments: [],
+  appraisal_comments: [],
   research_grade: 0,
   methods_grade: 0,
   implementation_grade: 0,
@@ -25,18 +25,61 @@
 ) = {
   // Validation
 
-  let module_options = ("COMP3931", "COMP3932")
   let report_options = ("sup", "asr", "jar")
+  let module_options = ("COMP3931", "COMP3932")
+
+  assert(
+    report_type in report_options,
+    message: "Report type must be one of " + report_options.join(", ")
+  )
 
   assert(
     module_code in module_options,
     message: "Module code must be one of " + module_options.join(", ")
   )
 
-  assert(
-    report_type in report_options,
-    message: "Report type must be one of " + report_options.join(", ")
-  )
+  assert.ne(student, "", message: "Student name must be provided")
+  assert.ne(supervisor, "", message: "Supervisor name must be provided")
+  assert.ne(assessor, "", message: "Assessor name must be provided")
+
+  context {
+    // Make sure there is content for project title
+    assert(
+      measure(project_title).width > 0pt,
+      message: "Project title must be provided"
+    )
+    if report_type == "jar" {
+      // Make sure that there is content for all comments fields
+      assert(
+        measure(comments).width > 0pt,
+        message: "Overall comments must be provided for joint report"
+      )
+      assert(
+        measure(research_comments).width > 0pt,
+        message: "Background Research comments must be provided for joint report"
+      )
+      assert(
+        measure(methods_comments).width > 0pt,
+        message: "Methods comments must be provided for joint report"
+      )
+      assert(
+        measure(implementation_comments).width > 0pt,
+        message: "Implementation & Validation comments must be provided for joint report"
+      )
+      assert(
+        measure(results_comments).width > 0pt,
+        message: "Results & Evaluation comments must be provided for joint report"
+      )
+      assert(
+        measure(presentation_comments).width > 0pt,
+        message: "Presentation comments must be provided for joint report"
+      )
+      assert(
+        measure(appraisal_comments).width > 0pt,
+        message: "Self-Appraisal comments must be provided for joint report"
+      )
+    }
+  }
 
   assert(
     research_grade >= 0 and research_grade <= 20,

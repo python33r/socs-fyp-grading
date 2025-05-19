@@ -3,15 +3,21 @@
 A [Typst][typ] template for grading final-year projects in the [School of
 Computer Science][socs] at the University of Leeds.
 
-This template can be used to generate the individual reports for supervisor
-& assessor, and the final joint assessment report.
+This template can be used to generate not only the individual reports for
+supervisor & assessor, but also the final joint assessment report.
 
-A valid but empty document that uses the template is provided in `empty.typ`.
-You can run this through Typst to see the effect of the default parameter
-settings.
+Documents using the template should have this format:
 
-A fleshed-out example document with guiding comments is provided in
-`starter.typ`. Use this as a starting point for writing actual reports.
+```typst
+#import "socs-fyp-grading.typ": *
+
+#show: report.with(
+  // set parameters in here
+)
+```
+
+An example document with guiding comments is provided in `starter.typ`.
+Use this as a starting point for writing actual reports.
 
 ## Notes
 
@@ -30,14 +36,14 @@ If you need to fail a project on this, pass `english_ok: false` to the
 `with()` method.
 
 You will always need to provide student name, supervisor name and assessor
-name, via the parameters `student`, `supervisor` and `assessor`.
+name as strings, via the parameters `student`, `supervisor` and `assessor`.
 
-Project title should be set using the parameter `project_title`. You can
-put this in double quotes or square brackets; the latter may be more
-convenient for longer titles, as it allows you to split a long title across
-multiple lines.
+Project title should always be set, using the parameter `project_title`.
+You can provide a value for this as a string in double quote, or as a content
+block enclosed in square brackets; the latter may be more convenient for
+longer titles, as it allows you to split a long title across multiple lines.
 
-Overall comments and category comments are supplied to a report via these
+Overall comments and category comments can be supplied to a report via these
 parameters:
 
     comments
@@ -48,9 +54,14 @@ parameters:
     presentation_comments
     appraisal_comments
 
-The text that you supply for each of these should be enclosed in square
-brackets. You can use blank lines to break up comments into multiple
-paragraphs if required.
+As with the project title, the text that you supply for each of these can
+be either a string or a content block, although the latter is almost always
+what you should be using. Within a content block, you can use blank lines
+to break up your comment into multiple paragraphs if required.
+
+Note that comments are allowed to be empty for individual reports, but
+**the template requires that content is provided for each of these fields in
+the joint report**.
 
 Grades are supplied via these parameters:
 
@@ -61,8 +72,10 @@ Grades are supplied via these parameters:
     presentation_grade
     appraisal_grade
 
-Values should be integers and will be checked to make sure that they are in
-range. The total will be computed and included in the report.
+These default to 0, so you will need to provide actual values in a report.
+Those values should be integers and they will be checked to make sure that
+they are in allowed range of each category. The total of all the grades will
+be computed and included in the report.
 
 [typ]: https://github.com/typst/typst
 [socs]: https://eps.leeds.ac.uk/computing/

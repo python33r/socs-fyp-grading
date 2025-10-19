@@ -6,18 +6,20 @@ Computer Science][socs] at the University of Leeds.
 This template can be used to generate not only the individual reports for
 supervisor & assessor, but also the final joint assessment report.
 
-Documents using the template should have this format:
+If you have the [just][jst] command runner, you can install locally with
 
-```typst
-#import "socs-fyp-grading.typ": *
+    just install
 
-#report(
-  // set parameters here
-)
-```
+Otherwise, do
 
-An example document with guiding comments is provided in `starter.typ`.
-Use this as a starting point for writing actual reports.
+    bash scripts/package '@local'
+
+Once the template is installed, you can create create a blank report with a
+command like
+
+    typst init '@local:socs-fyp-grading' subdir
+
+(This will create `main.typ` inside subdirectory `subdir`.)
 
 ## Notes
 
@@ -78,3 +80,4 @@ be computed and included in the report.
 
 [typ]: https://github.com/typst/typst
 [socs]: https://eps.leeds.ac.uk/computing/
+[jst]: https://just.systems/man/en/

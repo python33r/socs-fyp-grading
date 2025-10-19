@@ -1,0 +1,18 @@
+[package]
+name = "socs-fyp-grading"
+version = "0.3.0"
+entrypoint = "src/lib.typ"
+authors = ["Nick Efford"]
+license = "MIT"
+description = "Grading template for final-year projects in the School of Computer Science, University of Leeds."
+keywords = ["template", "academic", "leeds"]
+repository = "https://github.com/python33r/socs-fyp-grading"
+exclude = [
+  "scripts",
+  "tests",
+  "Justfile",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"

@@ -1,11 +1,10 @@
 #import "/src/lib.typ": *
 
-#report(
+#assert-panic(() => report(
   report-type: "sup",
+  module-code: "COMP3931",
   student: "STUDENT NAME",
-  project-title: [
-    PROJECT TITLE
-  ],
+  project-title: [PROJECT TITLE],
   supervisor: "SUPERVISOR NAME",
-  assessor: "ASSESSOR NAME",
-)
+  assessor: "",
+))

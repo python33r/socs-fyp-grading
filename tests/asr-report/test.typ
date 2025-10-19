@@ -1,7 +1,7 @@
 #import "/src/lib.typ": *
 
 #report(
-  report-type: "sup",
+  report-type: "asr",
   student: "STUDENT NAME",
   project-title: [
     PROJECT TITLE

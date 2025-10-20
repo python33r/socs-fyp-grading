@@ -11,6 +11,7 @@ default:
 #  typst compile docs/thumbnail.typ thumbnail.svg
 
 # run test suite
+[no-exit-message]
 test *args:
   tt --use-system-fonts run {{ args }}
 

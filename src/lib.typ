@@ -1,5 +1,4 @@
 // SoCS FYP Grading Report Template
-// (Nick Efford, May 2025)
 
 #let report(
   report-type: "sup",

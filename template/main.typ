@@ -1,4 +1,4 @@
-#import "@local/socs-fyp-grading:0.3.1": *
+#import "@local/socs-fyp-grading:0.3.2": report
 
 #report(
   // Specify report-type as "sup", "asr" or "jar"

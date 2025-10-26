@@ -1,5 +1,14 @@
 // SoCS FYP Grading Report Template
 
+#let check-content(content, category) = context assert(
+  measure(content).width > 0pt, message: category + " must be provided"
+)
+
+#let check-grade(grade, max, category) = {
+  let msg = "Grade for " + str(category) + " must be in range 0-" + str(max)
+  assert(grade >= 0 and grade <= max, message: msg)
+}
+
 #let report(
   report-type: "sup",
   module-code: "COMP3931",
@@ -41,74 +50,23 @@
   assert.ne(supervisor, "", message: "Supervisor name must be provided")
   assert.ne(assessor, "", message: "Assessor name must be provided")
 
-  context {
-    // Make sure there is content for project title
-    assert(
-      measure(project-title).width > 0pt,
-      message: "Project title must be provided"
-    )
-    if report-type == "jar" {
-      // Make sure that there is content for all comments fields
-      assert(
-        measure(comments).width > 0pt,
-        message: "Overall comments must be provided for joint report"
-      )
-      assert(
-        measure(research-comments).width > 0pt,
-        message: "Background Research comments must be provided for joint report"
-      )
-      assert(
-        measure(methods-comments).width > 0pt,
-        message: "Methods comments must be provided for joint report"
-      )
-      assert(
-        measure(implementation-comments).width > 0pt,
-        message: "Implementation & Validation comments must be provided for joint report"
-      )
-      assert(
-        measure(results-comments).width > 0pt,
-        message: "Results & Evaluation comments must be provided for joint report"
-      )
-      assert(
-        measure(presentation-comments).width > 0pt,
-        message: "Presentation comments must be provided for joint report"
-      )
-      assert(
-        measure(appraisal-comments).width > 0pt,
-        message: "Self-Appraisal comments must be provided for joint report"
-      )
-    }
+  check-content(project-title, "Project title")
+  if report-type == "jar" {
+    check-content(comments, "Overall comments")
+    check-content(research-comments, "Background Research comments")
+    check-content(methods-comments, "Methods comments")
+    check-content(implementation-comments, "Implementationn & Validation comments")
+    check-content(results-comments, "Results & Evaluation comments")
+    check-content(presentation-comments, "Presentation comments")
+    check-content(appraisal-comments, "Self-Appraisal comments")
   }
 
-  assert(
-    research-grade >= 0 and research-grade <= 20,
-    message: "Grade for Background Research must be in range 0-20"
-  )
-
-  assert(
-    methods-grade >= 0 and methods-grade <= 20,
-    message: "Grade for Methods must be in range 0-20"
-  )
-
-  assert(
-    implementation-grade >= 0 and implementation-grade <= 20,
-    message: "Grade for Implementation & Validation must be in range 0-20"
-  )
-
-  assert(
-    results-grade >= 0 and results-grade <= 20,
-    message: "Grade for Results & Evaluation must be in range 0-20"
-  )
-
-  assert(
-    presentation-grade >= 0 and presentation-grade <= 10,
-    message: "Grade for Presentation must be in range 0-10"
-  )
-
-  assert(
-    appraisal-grade >= 0 and appraisal-grade <= 10,
-    message: "Grade for Self-Appraisal must be in range 0-10"
-  )
+  check-grade(research-grade, 20, "Background Research")
+  check-grade(methods-grade, 20, "Methods")
+  check-grade(implementation-grade, 20, "Implementation & Validation")
+  check-grade(results-grade, 20, "Results & Evaluation")
+  check-grade(presentation-grade, 10, "Presentation")
+  check-grade(appraisal-grade, 10, "Self-Appraisal")
 
   // Configuration
 
